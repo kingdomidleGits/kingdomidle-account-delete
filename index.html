@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kingdom Idle 계정 삭제 요청 안내 | Ludos Interactive</title>
+<meta name="description" content="Kingdom Idle (Ludos Interactive) 계정 및 관련 데이터 삭제 요청 방법 안내 / How to request deletion of your Kingdom Idle account and data.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f5f6fa;
+    --surface: #ffffff;
+    --surface-2: #f1f3f9;
+    --text: #171a26;
+    --muted: #596075;
+    --border: #e1e4ee;
+    --accent: #4338ca;
+    --accent-hover: #3730a3;
+    --accent-soft: #eef0ff;
+    --accent-ink: #ffffff;
+    --hero-1: #1e1b4b;
+    --hero-2: #4338ca;
+    --hero-text: #ffffff;
+    --hero-muted: rgba(255, 255, 255, .78);
+    --gold: #f5c542;
+    --danger: #c62828;
+    --danger-soft: #fdeeee;
+    --danger-border: #f1c0c0;
+    --ok: #1e7a3c;
+    --ok-soft: #e6f4ea;
+    --keep: #9a5b00;
+    --keep-soft: #fff4de;
+    --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 10px 28px rgba(16, 24, 40, .07);
+    --radius: 16px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1016;
+      --surface: #171a24;
+      --surface-2: #1e2230;
+      --text: #e9ebf3;
+      --muted: #9ba2b6;
+      --border: #2b3040;
+      --accent: #8b85ff;
+      --accent-hover: #a39eff;
+      --accent-soft: #23234a;
+      --accent-ink: #0e1016;
+      --hero-1: #14123a;
+      --hero-2: #2f2a8f;
+      --gold: #f5c542;
+      --danger: #ff7b72;
+      --danger-soft: #34191b;
+      --danger-border: #5c2a2c;
+      --ok: #5fd68a;
+      --ok-soft: #142d1e;
+      --keep: #f0b44c;
+      --keep-soft: #33280f;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 28px rgba(0, 0, 0, .35);
+      color-scheme: dark;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  a { color: var(--accent); }
+  strong { font-weight: 700; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .9em;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1px 6px;
+    white-space: nowrap;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(135deg, var(--hero-1) 0%, var(--hero-2) 100%);
+    color: var(--hero-text);
+    padding: 20px 0 96px;
+  }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-mark {
+    width: 40px; height: 40px; border-radius: 12px;
+    display: grid; place-items: center;
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .22);
+  }
+  .brand-mark svg { width: 22px; height: 22px; color: var(--gold); }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+  .brand-text strong { font-size: 16px; }
+  .brand-text small { font-size: 13px; color: var(--hero-muted); }
+  .lang {
+    display: inline-flex; padding: 3px; border-radius: 999px;
+    background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .2);
+  }
+  .lang button {
+    appearance: none; border: 0; background: transparent; color: var(--hero-muted);
+    font: inherit; font-size: 13px; font-weight: 600;
+    padding: 5px 12px; border-radius: 999px; cursor: pointer;
+  }
+  .lang button[aria-pressed="true"] { background: #fff; color: #1e1b4b; }
+  .hero h1 { margin: 40px 0 10px; font-size: clamp(28px, 6vw, 40px); line-height: 1.25; letter-spacing: -.02em; }
+  .hero .lead { margin: 0; max-width: 600px; color: var(--hero-muted); font-size: 17px; }
+  .hero .lead strong { color: var(--hero-text); }
+
+  /* ---------- Cards ---------- */
+  main { padding-bottom: 48px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+  }
+  section { margin-top: 28px; }
+  .section-title {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 22px; letter-spacing: -.01em; margin: 0 0 14px;
+  }
+  .section-title::before {
+    content: ""; width: 6px; height: 22px; border-radius: 3px; background: var(--accent);
+  }
+
+  /* Request card (overlaps hero) */
+  .request { margin-top: -64px; text-align: center; padding: 28px 24px; border-top: 4px solid var(--accent); }
+  .eyebrow { margin: 0; font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: .02em; }
+  .email-big {
+    display: block; margin: 8px 0 6px;
+    font-size: clamp(18px, 4.6vw, 28px); font-weight: 800; letter-spacing: -.01em;
+    color: var(--text); text-decoration: none; overflow-wrap: anywhere;
+  }
+  .email-big:hover { color: var(--accent); }
+  .request .note { margin: 0 auto; max-width: 520px; color: var(--muted); }
+  .request .note strong { color: var(--text); }
+  .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 48px; padding: 0 22px; border-radius: 12px;
+    font: inherit; font-weight: 700; font-size: 16px; text-decoration: none; cursor: pointer;
+    transition: background-color .15s, border-color .15s, transform .05s;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border: 1px solid var(--accent); }
+  .btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+  .btn.ghost { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Summary strip */
+  .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+  .sum {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 16px; text-align: center;
+  }
+  .sum .label { display: block; font-size: 13px; color: var(--muted); font-weight: 600; }
+  .sum .value { display: block; margin-top: 4px; font-size: 17px; font-weight: 800; line-height: 1.35; }
+  .sum.time .value { color: var(--accent); }
+  .sum.del .value { color: var(--danger); }
+  .sum.keep .value { color: var(--keep); }
+
+  /* Steps */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .step {
+    position: relative; display: grid; grid-template-columns: 48px 1fr; gap: 16px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px; box-shadow: var(--shadow);
+  }
+  .step .num {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--accent); color: var(--accent-ink);
+    font-size: 20px; font-weight: 800;
+  }
+  .step h3 { margin: 2px 0 4px; font-size: 18px; line-height: 1.4; }
+  .step p { margin: 0; color: var(--muted); }
+  .step p strong { color: var(--text); }
+  .mail-preview {
+    margin-top: 12px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    background: var(--surface-2); font-size: 15px;
+  }
+  .mail-preview .row { display: grid; grid-template-columns: 92px 1fr; gap: 8px; padding: 10px 14px; }
+  .mail-preview .row + .row { border-top: 1px solid var(--border); }
+  .mail-preview .k { color: var(--muted); font-weight: 600; }
+  .mail-preview .v { font-weight: 600; overflow-wrap: anywhere; }
+
+  /* Warning notice */
+  .notice {
+    background: var(--danger-soft); border: 2px solid var(--danger-border);
+    border-radius: var(--radius); padding: 24px;
+  }
+  .notice h2 {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin: 0 0 10px; font-size: 20px; line-height: 1.4; color: var(--danger);
+  }
+  .notice h2 svg { width: 26px; height: 26px; flex: none; margin-top: 1px; }
+  .notice p { margin: 0 0 8px; }
+  .notice .why { color: var(--muted); font-size: 15px; }
+  .examples { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .ex { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+  .ex p { margin: 6px 0 0; font-size: 15px; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 13px; font-weight: 800; padding: 2px 10px; border-radius: 999px;
+  }
+  .ex.ok .tag { background: var(--ok-soft); color: var(--ok); }
+  .ex.no .tag { background: var(--danger-soft); color: var(--danger); }
+
+  /* Data */
+  .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .data h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 18px; }
+  .data h3 .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .data.del { border-top: 4px solid var(--danger); }
+  .data.del .dot { background: var(--danger); }
+  .data.keep { border-top: 4px solid var(--keep); }
+  .data.keep .dot { background: var(--keep); }
+  .data ul { margin: 0; padding-left: 20px; }
+  .data li + li { margin-top: 6px; }
+  .data .foot { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
+  .period {
+    display: inline-block; margin-top: 4px; padding: 2px 10px; border-radius: 8px;
+    background: var(--keep-soft); color: var(--keep); font-weight: 800;
+  }
+
+  /* Notes */
+  .notes h2 { margin: 0 0 10px; font-size: 18px; }
+  .notes ul { margin: 0; padding-left: 20px; color: var(--muted); }
+  .notes li + li { margin-top: 6px; }
+
+  footer {
+    border-top: 1px solid var(--border); padding: 24px 0 40px;
+    color: var(--muted); font-size: 14px; text-align: center;
+  }
+  footer p { margin: 2px 0; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px);
+    background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 999px;
+    font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none;
+    transition: opacity .2s, transform .2s;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (max-width: 640px) {
+    .hero { padding-bottom: 88px; }
+    .hero h1 { margin-top: 32px; }
+    .card, .notice { padding: 20px; }
+    .request { padding: 24px 18px; }
+    .actions .btn { width: 100%; }
+    .summary { grid-template-columns: 1fr; }
+    .sum { display: flex; justify-content: space-between; align-items: center; text-align: left; gap: 12px; }
+    .sum .value { margin-top: 0; text-align: right; }
+    .step { grid-template-columns: 1fr; gap: 10px; padding: 18px; }
+    .step .num { width: 40px; height: 40px; font-size: 18px; }
+    .mail-preview .row { grid-template-columns: 1fr; gap: 0; }
+    .examples, .data-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 7l4.5 4L12 4l4.5 7L21 7l-2 12H5L3 7z"/></svg>
+        </span>
+        <span class="brand-text">
+          <strong>Kingdom Idle</strong>
+          <small>Ludos Interactive</small>
+        </span>
+      </div>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ko" aria-pressed="true">한국어</button>
+        <button type="button" data-lang="en" aria-pressed="false">English</button>
+      </div>
+    </div>
+    <h1 data-i18n="title">계정 삭제 요청 안내</h1>
+    <p class="lead" data-i18n="lead">Kingdom Idle 계정 및 관련 데이터의 삭제는 <strong>이메일</strong>로 요청하실 수 있습니다. 아래 절차에 따라 요청해 주세요.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 접수처 -->
+  <section class="card request" aria-labelledby="req-eyebrow">
+    <p class="eyebrow" id="req-eyebrow" data-i18n="reqEyebrow">계정 삭제 요청 접수 이메일</p>
+    <a class="email-big" href="mailto:kingdomidle@ludosinteractive.com">kingdomidle@ludosinteractive.com</a>
+    <p class="note" data-i18n="reqNote">게임에 로그인한 <strong>구글 계정(Gmail)</strong>으로 위 주소에 메일을 보내 주세요.</p>
+    <div class="actions">
+      <a class="btn primary" id="mailBtn" href="mailto:kingdomidle@ludosinteractive.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span data-i18n="mailBtn">삭제 요청 메일 작성하기</span>
+      </a>
+      <button type="button" class="btn ghost" id="copyBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+        <span data-i18n="copyBtn">주소 복사</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 한눈에 보기 -->
+  <div class="summary">
+    <div class="sum time"><span class="label" data-i18n="sum1L">처리 기간</span><span class="value" data-i18n="sum1V">접수 후 2주 이내</span></div>
+    <div class="sum del"><span class="label" data-i18n="sum2L">삭제 항목</span><span class="value" data-i18n="sum2V">게임 데이터 ID + 구글 ID</span></div>
+    <div class="sum keep"><span class="label" data-i18n="sum3L">결제 기록</span><span class="value" data-i18n="sum3V">90일 보관 후 파기</span></div>
+  </div>
+
+  <!-- 절차 -->
+  <section aria-labelledby="steps-title">
+    <h2 class="section-title" id="steps-title" data-i18n="stepsTitle">계정 삭제 요청 절차</h2>
+    <ol class="steps">
+      <li class="step">
+        <span class="num" aria-hidden="true">1</span>
+        <div>
+          <h3 data-i18n="s1T">게임에 연동된 구글 계정으로 메일함 열기</h3>
+          <p data-i18n="s1D">Kingdom Idle에 로그인할 때 사용한 <strong>구글 계정(Gmail)</strong>으로 메일을 보내야 합니다. <strong>보내는 사람 주소가 곧 삭제 대상 계정</strong>이 됩니다.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="num" aria-hidden="true">2</span>
+        <div>
+          <h3 data-i18n="s2T">삭제 요청 메일 작성</h3>
+          <p data-i18n="s2D">아래와 같이 작성해 주세요. 위의 <strong>‘삭제 요청 메일 작성하기’</strong> 버튼을 누르면 내용이 자동으로 채워집니다.</p>
+          <div class="mail-preview">
+            <div class="row"><span class="k" data-i18n="mpTo">받는 사람</span><span class="v">kingdomidle@ludosinteractive.com</span></div>
+            <div class="row"><span class="k" data-i18n="mpSub">제목</span><span class="v" data-i18n="mpSubV">[Kingdom Idle] 계정 삭제 요청</span></div>
+            <div class="row"><span class="k" data-i18n="mpBody">내용</span><span class="v" data-i18n="mpBodyV">계정 삭제 요청 의사, 게임 내 닉네임 또는 유저 ID(선택)</span></div>
+          </div>
+        </div>
+      </li>
+      <li class="step">
+        <span class="num" aria-hidden="true">3</span>
+        <div>
+          <h3 data-i18n="s3T">메일 발송 및 접수</h3>
+          <p data-i18n="s3D">보내신 <strong>이메일 주소(구글 ID)를 기준으로</strong>, 해당 구글 ID로 생성된 게임 계정을 확인한 뒤 담당자가 직접 삭제해 드립니다.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="num" aria-hidden="true">4</span>
+        <div>
+          <h3 data-i18n="s4T">2주 이내 삭제 · 완료 메일 발송</h3>
+          <p data-i18n="s4D">요청 접수일로부터 <strong>2주(14일) 이내</strong>에 삭제가 진행되며, 삭제가 완료되면 요청하신 이메일 주소로 <strong>완료 메시지</strong>를 보내 드립니다.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 본인 계정만 -->
+  <section class="notice" aria-labelledby="notice-title">
+    <h2 id="notice-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <span data-i18n="nT">메일을 보낸 구글 계정만 삭제할 수 있습니다</span>
+    </h2>
+    <p data-i18n="nD">계정 삭제는 <strong>메일을 보낸 구글 이메일 주소와 동일한 구글 ID로 생성된 계정</strong>에 대해서만 진행됩니다. 보낸 주소와 <strong>다른 구글 ID에 대한 삭제 요청은 처리할 수 없습니다.</strong></p>
+    <p class="why" data-i18n="nWhy">이는 다른 사람이 타인의 계정을 임의로 삭제하는 것을 막기 위한 보호 조치입니다.</p>
+    <div class="examples">
+      <div class="ex ok">
+        <span class="tag" data-i18n="exOkTag">✓ 처리 가능</span>
+        <p data-i18n="exOk"><code>abc@gmail.com</code>에서 발송 → <code>abc@gmail.com</code> 계정 삭제</p>
+      </div>
+      <div class="ex no">
+        <span class="tag" data-i18n="exNoTag">✕ 처리 불가</span>
+        <p data-i18n="exNo"><code>abc@gmail.com</code>에서 발송 → <code>xyz@gmail.com</code> 계정 삭제 요청</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 데이터 -->
+  <section aria-labelledby="data-title">
+    <h2 class="section-title" id="data-title" data-i18n="dataTitle">삭제 및 보관되는 데이터</h2>
+    <div class="data-grid">
+      <div class="card data del">
+        <h3><span class="dot" aria-hidden="true"></span><span data-i18n="delT">삭제되는 데이터</span></h3>
+        <ul>
+          <li data-i18n="del1"><strong>게임 데이터 ID</strong> 및 해당 계정의 게임 데이터</li>
+          <li data-i18n="del2"><strong>구글 ID</strong> (게임에 연동된 구글 계정 정보)</li>
+        </ul>
+        <p class="foot" data-i18n="delFoot">삭제 요청 시 위 항목이 모두 삭제되며, 삭제된 데이터는 복구할 수 없습니다.</p>
+      </div>
+      <div class="card data keep">
+        <h3><span class="dot" aria-hidden="true"></span><span data-i18n="keepT">보관되는 데이터</span></h3>
+        <ul>
+          <li><span data-i18n="keep1"><strong>결제 기록</strong></span><br><span class="period" data-i18n="keepPeriod">90일간 보관</span></li>
+        </ul>
+        <p class="foot" data-i18n="keepFoot">결제 기록은 계정 삭제 후 90일간 보관되며, 보관 기간이 지나면 파기됩니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 참고 -->
+  <section class="card notes" aria-labelledby="notes-title">
+    <h2 id="notes-title" data-i18n="notesT">참고 사항</h2>
+    <ul>
+      <li data-i18n="note1">기기에서 앱을 삭제(제거)하는 것만으로는 계정과 데이터가 삭제되지 않습니다.</li>
+      <li data-i18n="note2">삭제가 완료된 계정과 게임 데이터는 복구할 수 없으니 신중하게 요청해 주세요.</li>
+      <li data-i18n="note3">기타 문의: <a href="mailto:kingdomidle@ludosinteractive.com">kingdomidle@ludosinteractive.com</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Kingdom Idle · © 2026 Ludos Interactive</p>
+    <p data-i18n="updated">최종 업데이트: 2026년 10월 10일</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  var EMAIL = 'kingdomidle@ludosinteractive.com';
+
+  var MAIL = {
+    ko: {
+      subject: '[Kingdom Idle] 계정 삭제 요청',
+      body: [
+        '안녕하세요.',
+        'Kingdom Idle 계정 삭제를 요청합니다.',
+        '',
+        '- 게임 내 닉네임 또는 유저 ID (선택): ',
+        '',
+        '※ 이 메일을 보내는 구글 계정과 동일한 구글 ID로 생성된 계정의 삭제를 요청합니다.',
+        '※ 삭제 시 게임 데이터 ID와 구글 ID가 모두 삭제되며, 복구할 수 없음을 확인했습니다.'
+      ].join('\r\n')
+    },
+    en: {
+      subject: '[Kingdom Idle] Account Deletion Request',
+      body: [
+        'Hello,',
+        'I would like to request deletion of my Kingdom Idle account.',
+        '',
+        '- In-game nickname or user ID (optional): ',
+        '',
+        '* I am requesting deletion of the account created with the same Google ID as the address sending this email.',
+        '* I understand that my game data ID and Google ID will both be deleted and cannot be recovered.'
+      ].join('\r\n')
+    }
+  };
+
+  var EN = {
+    title: 'Account Deletion Request',
+    lead: 'You can request deletion of your Kingdom Idle account and related data by <strong>email</strong>. Please follow the steps below.',
+    reqEyebrow: 'Send your account deletion request to',
+    reqNote: 'Please send the email from the <strong>Google account (Gmail)</strong> you use to sign in to the game.',
+    mailBtn: 'Write a deletion request email',
+    copyBtn: 'Copy address',
+    sum1L: 'Processing time',
+    sum1V: 'Within 2 weeks',
+    sum2L: 'Deleted',
+    sum2V: 'Game data ID + Google ID',
+    sum3L: 'Payment records',
+    sum3V: 'Kept 90 days, then deleted',
+    stepsTitle: 'How to request account deletion',
+    s1T: 'Open the mailbox of the Google account linked to the game',
+    s1D: 'The email must be sent from the <strong>Google account (Gmail)</strong> you use to sign in to Kingdom Idle. <strong>The sender address determines which account is deleted.</strong>',
+    s2T: 'Write the deletion request email',
+    s2D: 'Write it as shown below. Tapping the <strong>“Write a deletion request email”</strong> button above fills this in for you.',
+    mpTo: 'To',
+    mpSub: 'Subject',
+    mpSubV: '[Kingdom Idle] Account Deletion Request',
+    mpBody: 'Message',
+    mpBodyV: 'Your request to delete the account, and your in-game nickname or user ID (optional)',
+    s3T: 'Send the email',
+    s3D: 'Based on <strong>the sender email address (Google ID)</strong>, we identify the game account created with that Google ID and delete it for you manually.',
+    s4T: 'Deleted within 2 weeks · Confirmation email',
+    s4D: 'Your account is deleted <strong>within 2 weeks (14 days)</strong> of receiving your request, and we send a <strong>confirmation message</strong> to your email address once deletion is complete.',
+    nT: 'Only the Google account that sent the email can be deleted',
+    nD: 'We only delete the account created with <strong>the same Google ID as the email address that sent the request</strong>. <strong>Requests to delete a different Google ID cannot be processed.</strong>',
+    nWhy: 'This protects users by preventing anyone from deleting another person’s account.',
+    exOkTag: '✓ Accepted',
+    exOk: 'Sent from <code>abc@gmail.com</code> → delete the <code>abc@gmail.com</code> account',
+    exNoTag: '✕ Not accepted',
+    exNo: 'Sent from <code>abc@gmail.com</code> → request to delete the <code>xyz@gmail.com</code> account',
+    dataTitle: 'Data that is deleted and retained',
+    delT: 'Deleted data',
+    del1: '<strong>Game data ID</strong> and the game data of that account',
+    del2: '<strong>Google ID</strong> (Google account information linked to the game)',
+    delFoot: 'All of the above is deleted when you request deletion. Deleted data cannot be recovered.',
+    keepT: 'Retained data',
+    keep1: '<strong>Payment records</strong>',
+    keepPeriod: 'Retained for 90 days',
+    keepFoot: 'Payment records are kept for 90 days after account deletion and then destroyed.',
+    notesT: 'Please note',
+    note1: 'Uninstalling the app from your device does not delete your account or data.',
+    note2: 'Deleted accounts and game data cannot be recovered, so please make your request carefully.',
+    note3: 'Other inquiries: <a href="mailto:kingdomidle@ludosinteractive.com">kingdomidle@ludosinteractive.com</a>',
+    updated: 'Last updated: October 10, 2026'
+  };
+
+  var TITLES = {
+    ko: 'Kingdom Idle 계정 삭제 요청 안내 | Ludos Interactive',
+    en: 'Kingdom Idle Account Deletion | Ludos Interactive'
+  };
+  var UI = {
+    ko: { copied: '이메일 주소가 복사되었습니다', copyFail: '복사에 실패했습니다. 주소를 직접 선택해 주세요' },
+    en: { copied: 'Email address copied', copyFail: 'Copy failed. Please select the address manually' }
+  };
+
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
+  var KO = {};
+  nodes.forEach(function (n) { KO[n.getAttribute('data-i18n')] = n.innerHTML; });
+
+  var current = 'ko';
+  var mailBtn = document.getElementById('mailBtn');
+  var langBtns = document.querySelectorAll('.lang button');
+
+  function mailto(lang) {
+    var m = MAIL[lang];
+    return 'mailto:' + EMAIL +
+      '?subject=' + encodeURIComponent(m.subject) +
+      '&body=' + encodeURIComponent(m.body);
+  }
+
+  function apply(lang) {
+    current = lang === 'en' ? 'en' : 'ko';
+    var dict = current === 'en' ? EN : KO;
+    nodes.forEach(function (n) {
+      var k = n.getAttribute('data-i18n');
+      if (dict[k] != null) n.innerHTML = dict[k];
+    });
+    document.documentElement.lang = current;
+    document.title = TITLES[current];
+    mailBtn.href = mailto(current);
+    Array.prototype.forEach.call(langBtns, function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === current));
+    });
+  }
+
+  Array.prototype.forEach.call(langBtns, function (b) {
+    b.addEventListener('click', function () {
+      var lang = b.getAttribute('data-lang');
+      apply(lang);
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    });
+  });
+
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var done = function () { showToast(UI[current].copied); };
+    var fail = function () { showToast(fallbackCopy(EMAIL) ? UI[current].copied : UI[current].copyFail); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(EMAIL).then(done, fail);
+    } else {
+      fail();
+    }
+  });
+
+  // 언어 결정: ?lang= 파라미터 > 저장된 선택 > 브라우저 언어
+  var initial = null;
+  var m = location.search.match(/[?&]lang=(ko|en)\b/i);
+  if (m) initial = m[1].toLowerCase();
+  if (!initial) { try { initial = localStorage.getItem('lang'); } catch (e) {} }
+  if (!initial) {
+    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'ko';
+    initial = /^ko\b/i.test(nav) ? 'ko' : 'en';
+  }
+  apply(initial);
+})();
+</script>
+</body>
+</html>
